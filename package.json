@@ -1,0 +1,52 @@
+{
+  "name": "nano-cinema-mini",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "nx serve cinema",
+    "build": "nx build cinema",
+    "lab": "node tools/lab/lab.mjs",
+    "lab:check": "node tools/lab/lab.mjs check",
+    "lab:solve": "node tools/lab/lab.mjs solve",
+    "lab:reset": "node tools/lab/lab.mjs reset",
+    "lab:status": "node tools/lab/lab.mjs status",
+    "lab:verify": "node tools/lab/lab.mjs check all --solutions",
+    "typecheck": "tsc -p apps/cinema/tsconfig.app.json --noEmit && tsc -p workshop/tsconfig.json && tsc -p tools/lab/tsconfig.json"
+  },
+  "private": true,
+  "devDependencies": {
+    "@angular-devkit/core": "~22.2.0",
+    "@angular-devkit/schematics": "~22.2.0",
+    "@angular/build": "~22.2.0",
+    "@angular/cli": "~22.2.0",
+    "@angular/compiler-cli": "~22.2.0",
+    "@angular/language-service": "~22.2.0",
+    "@nx/angular": "^24.0.0",
+    "@nx/js": "24.0.0",
+    "@nx/web": "24.0.0",
+    "@schematics/angular": "~22.2.0",
+    "@swc-node/register": "1.11.1",
+    "@swc/core": "1.15.8",
+    "@swc/helpers": "0.5.18",
+    "@types/node": "^24.0.0",
+    "nx": "24.0.0",
+    "prettier": "^3.8.1",
+    "tslib": "^2.3.0",
+    "typescript": "~6.0.3",
+    "vitest": "^5.1.1"
+  },
+  "packageManager": "npm@10.9.9",
+  "dependencies": {
+    "@angular/common": "~22.2.0",
+    "@angular/compiler": "~22.2.0",
+    "@angular/core": "~22.2.0",
+    "@angular/forms": "~22.2.0",
+    "@angular/platform-browser": "~22.2.0",
+    "@angular/router": "~22.2.0",
+    "rxjs": "~7.8.0"
+  },
+  "description": "Mini lab repository for the 45-minute AI at Zero Token Cost workshop: Prompt API and task APIs in an Angular app.",
+  "engines": {
+    "node": "^22.22.3 || ^24.15.0 || >=26.0.0"
+  }
+}

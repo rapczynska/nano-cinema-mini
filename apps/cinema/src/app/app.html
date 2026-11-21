@@ -1,0 +1,48 @@
+<header class="bar">
+  <a class="brand" routerLink="/">
+    <span class="mark" aria-hidden="true">N</span>
+    <span>Nano Cinema <span class="muted">· mini lab</span></span>
+  </a>
+
+  <nav aria-label="Main">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Programme</a>
+    <a routerLink="/preflight" routerLinkActive="active">Preflight</a>
+    @for (lab of labs; track lab.path) {
+      <a [routerLink]="lab.path" routerLinkActive="active">{{ lab.label }}</a>
+    }
+  </nav>
+
+  <label class="mode">
+    <input type="checkbox" [checked]="ai.simulated()" (change)="onModeChange($event)" />
+    <span>Use simulated browser AI</span>
+  </label>
+</header>
+
+@if (ai.simulated()) {
+  <p class="notice" role="status">
+    <strong>Simulated browser AI.</strong>
+    The labs run against a stand-in for the built-in APIs. It shows how your code calls them, never the quality of a
+    real model.
+    @if (!ai.chosen()) {
+      @if (ai.promptState() === 'missing') {
+        This browser has no Prompt API, so simulation is the default here.
+      } @else {
+        The Prompt API is unavailable on this device, so simulation is the default here.
+      }
+    }
+  </p>
+} @else if (ai.promptState() === 'missing' || ai.promptState() === 'unavailable') {
+  <p class="notice" role="alert">
+    <strong>Native browser AI is selected, but this device cannot run the Prompt API.</strong>
+    Tick “Use simulated browser AI” to do the labs.
+  </p>
+}
+
+<main>
+  <router-outlet />
+</main>
+
+<footer class="page foot muted">
+  Sintel, Elephants Dream and Big Buck Bunny are open movies © Blender Foundation, published under Creative Commons
+  Attribution licences. Nano Cinema is a workshop app and shows no video.
+</footer>

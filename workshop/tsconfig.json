@@ -1,0 +1,10 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "types": [],
+    "rootDir": ".."
+  },
+  "files": ["../libs/browser-ai/src/index.ts"],
+  "include": ["solutions/**/*.ts"]
+}

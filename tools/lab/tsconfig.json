@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "types": ["node"],
+    "rootDir": "../..",
+    "paths": {
+      "@nano-cinema/catalogue": ["../../libs/catalogue/src/index.ts"],
+      "@nano-cinema/browser-ai": ["../../libs/browser-ai/src/index.ts"],
+      "@exercise/*": ["../../apps/cinema/src/app/lab/*"]
+    }
+  },
+  "include": ["checks/**/*.ts", "vitest.config.mts"]
+}
